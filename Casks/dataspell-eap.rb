@@ -22,8 +22,8 @@ cask "dataspell-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "DataSpell #{version.major_minor} EAP.app"
-  binary "#{appdir}/DataSpell #{version.major_minor} EAP.app/Contents/MacOS/dataspell", target: "dataspell-eap"
+  app "DataSpell #{version.major_minor_patch} EAP.app"
+  binary "#{appdir}/DataSpell #{version.major_minor_patch} EAP.app/Contents/MacOS/dataspell", target: "dataspell-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "dataspell") }.each do |path|
@@ -35,9 +35,9 @@ cask "dataspell-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/DataSpell#{version.major_minor}",
-    "~/Library/Caches/JetBrains/DataSpell#{version.major_minor}",
-    "~/Library/Logs/JetBrains/DataSpell#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/DataSpell#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/DataSpell#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/DataSpell#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.dataspell-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.dataspell-EAP.savedState",
   ]

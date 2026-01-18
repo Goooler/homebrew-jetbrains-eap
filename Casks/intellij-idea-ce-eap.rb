@@ -23,8 +23,8 @@ cask "intellij-idea-ce-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "IntelliJ IDEA #{version.major_minor} CE EAP.app"
-  binary "#{appdir}/IntelliJ IDEA #{version.major_minor} CE EAP.app/Contents/MacOS/idea", target: "idea-ce-eap"
+  app "IntelliJ IDEA #{version.major_minor_patch} CE EAP.app"
+  binary "#{appdir}/IntelliJ IDEA #{version.major_minor_patch} CE EAP.app/Contents/MacOS/idea", target: "idea-ce-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "idea") }.each do |path|
@@ -36,9 +36,9 @@ cask "intellij-idea-ce-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/IdeaIC#{version.major_minor}",
-    "~/Library/Caches/JetBrains/IdeaIC#{version.major_minor}",
-    "~/Library/Logs/JetBrains/IdeaIC#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/IdeaIC#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/IdeaIC#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/IdeaIC#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.intellij.ce-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.intellij.ce-EAP.savedState",
   ]

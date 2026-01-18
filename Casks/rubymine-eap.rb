@@ -22,8 +22,8 @@ cask "rubymine-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "RubyMine #{version.major_minor} EAP.app"
-  binary "#{appdir}/RubyMine #{version.major_minor} EAP.app/Contents/MacOS/rubymine", target: "rubymine-eap"
+  app "RubyMine #{version.major_minor_patch} EAP.app"
+  binary "#{appdir}/RubyMine #{version.major_minor_patch} EAP.app/Contents/MacOS/rubymine", target: "rubymine-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "mine") }.each do |path|
@@ -35,9 +35,9 @@ cask "rubymine-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/RubyMine#{version.major_minor}",
-    "~/Library/Caches/JetBrains/RubyMine#{version.major_minor}",
-    "~/Library/Logs/JetBrains/RubyMine#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/RubyMine#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/RubyMine#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/RubyMine#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.RubyMine-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.RubyMine-EAP.savedState",
   ]

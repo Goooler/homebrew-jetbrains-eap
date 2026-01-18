@@ -35,9 +35,9 @@ cask "rider-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/Rider#{version.major_minor}",
-    "~/Library/Caches/JetBrains/Rider#{version.major_minor}",
-    "~/Library/Logs/JetBrains/Rider#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/Rider#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/Rider#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/Rider#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.rider-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.rider-EAP.savedState",
   ]

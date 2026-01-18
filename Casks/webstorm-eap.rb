@@ -22,8 +22,8 @@ cask "webstorm-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "WebStorm #{version.major_minor} EAP.app"
-  binary "#{appdir}/WebStorm #{version.major_minor} EAP.app/Contents/MacOS/webstorm", target: "webstorm-eap"
+  app "WebStorm #{version.major_minor_patch} EAP.app"
+  binary "#{appdir}/WebStorm #{version.major_minor_patch} EAP.app/Contents/MacOS/webstorm", target: "webstorm-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "wstorm") }.each do |path|
@@ -35,9 +35,9 @@ cask "webstorm-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/WebStorm#{version.major_minor}",
-    "~/Library/Caches/JetBrains/WebStorm#{version.major_minor}",
-    "~/Library/Logs/JetBrains/WebStorm#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/WebStorm#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/WebStorm#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/WebStorm#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.WebStorm-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.WebStorm-EAP.savedState",
   ]

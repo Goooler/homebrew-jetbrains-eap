@@ -22,8 +22,8 @@ cask "goland-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "GoLand #{version.major_minor} EAP.app"
-  binary "#{appdir}/GoLand #{version.major_minor} EAP.app/Contents/MacOS/goland", target: "goland-eap"
+  app "GoLand #{version.major_minor_patch} EAP.app"
+  binary "#{appdir}/GoLand #{version.major_minor_patch} EAP.app/Contents/MacOS/goland", target: "goland-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "goland") }.each do |path|
@@ -35,9 +35,9 @@ cask "goland-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/GoLand#{version.major_minor}",
-    "~/Library/Caches/JetBrains/GoLand#{version.major_minor}",
-    "~/Library/Logs/JetBrains/GoLand#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/GoLand#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/GoLand#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/GoLand#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.goland-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.goland-EAP.SavedState",
   ]

@@ -22,8 +22,8 @@ cask "clion-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "CLion #{version.major_minor} EAP.app"
-  binary "#{appdir}/CLion #{version.major_minor} EAP.app/Contents/MacOS/clion", target: "clion-eap"
+  app "CLion #{version.major_minor_patch} EAP.app"
+  binary "#{appdir}/CLion #{version.major_minor_patch} EAP.app/Contents/MacOS/clion", target: "clion-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "clion") }.each do |path|
@@ -35,9 +35,9 @@ cask "clion-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/CLion#{version.major_minor}",
-    "~/Library/Caches/JetBrains/CLion#{version.major_minor}",
-    "~/Library/Logs/JetBrains/CLion#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/CLion#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/CLion#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/CLion#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.CLion-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.CLion-EAP.savedState",
   ]

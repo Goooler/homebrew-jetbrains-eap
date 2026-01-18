@@ -23,8 +23,8 @@ cask "pycharm-ce-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "PyCharm CE #{version.major_minor} EAP.app"
-  binary "#{appdir}/PyCharm CE #{version.major_minor} EAP.app/Contents/MacOS/pycharm", target: "pycharm-ce-eap"
+  app "PyCharm CE #{version.major_minor_patch} EAP.app"
+  binary "#{appdir}/PyCharm CE #{version.major_minor_patch} EAP.app/Contents/MacOS/pycharm", target: "pycharm-ce-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "charm") }.each do |path|
@@ -36,9 +36,9 @@ cask "pycharm-ce-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/PyCharmCE#{version.major_minor}",
-    "~/Library/Caches/JetBrains/PyCharmCE#{version.major_minor}",
-    "~/Library/Logs/JetBrains/PyCharmCE#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/PyCharmCE#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/PyCharmCE#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/PyCharmCE#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.pycharm.ce-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.pycharm.ce-EAP.savedState",
   ]

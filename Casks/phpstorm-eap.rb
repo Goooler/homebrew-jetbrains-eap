@@ -22,8 +22,8 @@ cask "phpstorm-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "PhpStorm #{version.major_minor} EAP.app"
-  binary "#{appdir}/PhpStorm #{version.major_minor} EAP.app/Contents/MacOS/phpstorm", target: "phpstorm-eap"
+  app "PhpStorm #{version.major_minor_patch} EAP.app"
+  binary "#{appdir}/PhpStorm #{version.major_minor_patch} EAP.app/Contents/MacOS/phpstorm", target: "phpstorm-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "pstorm") }.each do |path|
@@ -35,9 +35,9 @@ cask "phpstorm-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/PhpStorm#{version.major_minor}",
-    "~/Library/Caches/JetBrains/PhpStorm#{version.major_minor}",
-    "~/Library/Logs/JetBrains/PhpStorm#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/PhpStorm#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/PhpStorm#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/PhpStorm#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.PhpStorm-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.PhpStorm-EAP.savedState",
   ]

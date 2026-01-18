@@ -22,8 +22,8 @@ cask "datagrip-eap" do
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  app "DataGrip #{version.major_minor} EAP.app"
-  binary "#{appdir}/DataGrip #{version.major_minor} EAP.app/Contents/MacOS/datagrip", target: "datagrip-eap"
+  app "DataGrip #{version.major_minor_patch} EAP.app"
+  binary "#{appdir}/DataGrip #{version.major_minor_patch} EAP.app/Contents/MacOS/datagrip", target: "datagrip-eap"
 
   uninstall_postflight do
     ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "datagrip") }.each do |path|
@@ -35,9 +35,9 @@ cask "datagrip-eap" do
   end
 
   zap trash: [
-    "~/Library/Application Support/JetBrains/DataGrip#{version.major_minor}",
-    "~/Library/Caches/JetBrains/DataGrip#{version.major_minor}",
-    "~/Library/Logs/JetBrains/DataGrip#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/DataGrip#{version.major_minor_patch}",
+    "~/Library/Caches/JetBrains/DataGrip#{version.major_minor_patch}",
+    "~/Library/Logs/JetBrains/DataGrip#{version.major_minor_patch}",
     "~/Library/Preferences/com.jetbrains.datagrip-EAP.plist",
     "~/Library/Saved Application State/com.jetbrains.datagrip-EAP.savedState",
   ]
